@@ -33,7 +33,7 @@ public class Usuario implements Serializable{
     @Basic(optional = false)
     @NotNull
     @Size(min = 3, max = 20)
-    @Column(name = "nombre")
+    @Column(name = "nombres")
     private String nombres;
     
     @Basic(optional = false)
@@ -73,7 +73,7 @@ public class Usuario implements Serializable{
     private Boolean activo;
     
     @JoinColumn(name = "id_cargo", referencedColumnName = "id")
-    @OneToOne(optional = false, mappedBy = "usuario")
+    @OneToOne(optional = false)
     private Cargo cargo;
     
     @JoinColumn(name = "id_tipo_documento", referencedColumnName = "id")
@@ -240,7 +240,7 @@ public class Usuario implements Serializable{
     public List<UsuariosHasRoles> getUsuariosHasRolesList() {
         return usuariosHasRolesList;
     }
-
+    
     public void setUsuariosHasRolesList(List<UsuariosHasRoles> usuariosHasRolesList) {
         this.usuariosHasRolesList = usuariosHasRolesList;
     }

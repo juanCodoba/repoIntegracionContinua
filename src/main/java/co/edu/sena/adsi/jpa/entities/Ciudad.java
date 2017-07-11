@@ -1,4 +1,3 @@
-
 package co.edu.sena.adsi.jpa.entities;
 
 import java.io.Serializable;
@@ -15,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -23,25 +23,24 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "ciudades")
 public class Ciudad implements Serializable{
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 3, max = 60)
     @Column(name = "nombre")
     private String nombre;
-    
+
     @JoinColumn(name = "id_departamento", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Departamento departamento;
-    
+
     @OneToMany(mappedBy = "ciudad")
     private List<Usuario> usuariosList;
-    
 
     public Ciudad() {
     }
@@ -79,6 +78,7 @@ public class Ciudad implements Serializable{
         this.departamento = departamento;
     }
 
+    @XmlTransient
     public List<Usuario> getUsuariosList() {
         return usuariosList;
     }
@@ -91,5 +91,5 @@ public class Ciudad implements Serializable{
     public String toString() {
         return "Ciudad{" + "id=" + id + '}';
     }
-   
+
 }
