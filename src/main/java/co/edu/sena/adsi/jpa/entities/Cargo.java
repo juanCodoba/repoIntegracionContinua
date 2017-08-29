@@ -31,10 +31,10 @@ public class Cargo implements Serializable{
     @Size(min = 4, max = 60)
     @Column(name = "descripcion")
     private String descripcion;
-    
+    /*
     @OneToOne(mappedBy = "cargo")
     private Usuario usuario;
-
+*/
     public Cargo() {
     }
 
@@ -62,7 +62,7 @@ public class Cargo implements Serializable{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
+/*
     public Usuario getUsuario() {
         return usuario;
     }
@@ -70,7 +70,7 @@ public class Cargo implements Serializable{
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-   
+  */ 
     @Override
     public String toString() {
         return "Cargo{" + "id=" + id + '}';
