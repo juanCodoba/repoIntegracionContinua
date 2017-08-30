@@ -55,7 +55,7 @@ public class DetalleNominaREST {
             @QueryParam("idNomina") Integer idNomina
     ){
         
-        try {
+       try {
             DetalleNomina  newDetallenomina = new DetalleNomina();
         
         //CONSULTANDO EL ID DEL USUARIO 
@@ -64,8 +64,10 @@ public class DetalleNominaREST {
         //CONSULTADO EL ID DE LA NOMINA 
         Nomina nomina = nominaEJB.find(idNomina);
         
+        newDetallenomina.setDiasLaborados(diasLaborados);
+        
         //sueldo de vengado sueldobasico/30*diaslaborados
-        newDetallenomina.setSueldoDevengado(empleado.getSueldoBasico() /30 *diasLaborados);
+        newDetallenomina.setSueldoDevengado(empleado.getSueldoBasico() /30 * diasLaborados);
         
         //auxilo trasporte 
         newDetallenomina.setAuxilioTransporte(obtenerAuxTransporte(empleado.getSueldoBasico(),diasLaborados ));
@@ -101,11 +103,15 @@ public class DetalleNominaREST {
         //total neto a pagar
         newDetallenomina.setNetoPagar(newDetallenomina.getTotalDevengado()-newDetallenomina.getTotalDescuento());
         
+        newDetallenomina.setEmpleado(empleado);
         newDetallenomina.setNomina(new Nomina (idNomina));
+        
+        detalleNominaEJB.create(newDetallenomina);
         } catch (Exception e) {
             System.out.println("error"  +  e);
+            
         }
-        
+       
     }
                 
     

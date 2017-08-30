@@ -189,7 +189,7 @@ public class Usuario implements Serializable{
     public void setActivo(Boolean activo) {
         this.activo = activo;
     }
-
+    @XmlTransient
     public Cargo getCargo() {
         return cargo;
     }
@@ -229,7 +229,7 @@ public class Usuario implements Serializable{
     public void setJefeInmediato(Usuario jefeInmediato) {
         this.jefeInmediato = jefeInmediato;
     }
-
+    @XmlTransient
     public List<DetalleNomina> getDetalleNominaList() {
         return detalleNominaList;
     }
@@ -237,7 +237,7 @@ public class Usuario implements Serializable{
     public void setDetalleNominaList(List<DetalleNomina> detalleNominaList) {
         this.detalleNominaList = detalleNominaList;
     }
-
+  
     public List<UsuariosHasRoles> getUsuariosHasRolesList() {
         return usuariosHasRolesList;
     }

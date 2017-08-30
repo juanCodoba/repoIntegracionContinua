@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -62,7 +63,7 @@ public class UsuariosHasRoles  implements Serializable{
     public void setActivo(Boolean activo) {
         this.activo = activo;
     }
-
+    @XmlTransient   
     public Usuario getUsuario() {
         return usuario;
     }

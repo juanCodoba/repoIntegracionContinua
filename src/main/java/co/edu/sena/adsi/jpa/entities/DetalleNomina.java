@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -23,7 +24,7 @@ public class DetalleNomina implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+    @Basic(optional = false )
     @Column(name = "id")
     private Integer id;
     
@@ -215,7 +216,7 @@ public class DetalleNomina implements Serializable{
     public void setEmpleado(Usuario empleado) {
         this.empleado = empleado;
     }
-
+    @XmlTransient
     public Nomina getNomina() {
         return nomina;
     }

@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -20,6 +21,8 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "cargos")
 public class Cargo implements Serializable{
+
+    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +34,10 @@ public class Cargo implements Serializable{
     @Size(min = 4, max = 60)
     @Column(name = "descripcion")
     private String descripcion;
-    /*
+   
     @OneToOne(mappedBy = "cargo")
     private Usuario usuario;
-*/
+
     public Cargo() {
     }
 
@@ -62,7 +65,7 @@ public class Cargo implements Serializable{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-/*
+    @XmlTransient
     public Usuario getUsuario() {
         return usuario;
     }
@@ -70,7 +73,7 @@ public class Cargo implements Serializable{
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-  */ 
+  
     @Override
     public String toString() {
         return "Cargo{" + "id=" + id + '}';
