@@ -27,5 +27,9 @@ public class TipoDocumentoREST {
     public List<TipoDocumento> findAll(){
         return tipoDocumentoEJB.findAll();
     }
+    @GET
+    public List<TipoDocumento> findId(){
+        return tipoDocumentoEJB.findId();
+    }
     
 }
