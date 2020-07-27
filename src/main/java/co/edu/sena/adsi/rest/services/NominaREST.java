@@ -30,6 +30,7 @@ public class NominaREST {
     }
     
     @GET
+    //Busquedad por ID
     @Path("{id}")
     public Nomina findById(@PathParam("id") Integer id){
         return nominaEJB.find(id);

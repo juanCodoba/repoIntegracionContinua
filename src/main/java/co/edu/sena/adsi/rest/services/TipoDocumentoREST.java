@@ -29,6 +29,8 @@ public class TipoDocumentoREST {
     }
     @GET
     public List<TipoDocumento> findId(){
+	//Prueba
+
         return tipoDocumentoEJB.findId();
     }
     
